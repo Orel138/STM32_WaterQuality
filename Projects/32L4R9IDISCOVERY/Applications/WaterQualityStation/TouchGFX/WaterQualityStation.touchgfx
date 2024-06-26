@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Main",
+        "CanvasBufferSize": 5850,
         "Components": [
           {
             "Type": "Box",
@@ -68,58 +69,41 @@
             "RelativeFilename": "hum_press_needle_center.png"
           },
           {
-            "Type": "Image",
-            "Name": "tgfx_logo_white",
-            "X": 95,
-            "Y": 275,
-            "Width": 200,
-            "Height": 37,
-            "RelativeFilename": "tgfx_logo_white.png"
-          },
-          {
-            "Type": "AnalogClock",
-            "Name": "analogClock",
-            "Width": 390,
-            "Height": 390,
-            "FileNameBackground": "blank_watch_background.png",
-            "RotationCenterX": 195,
-            "RotationCenterY": 195,
-            "UseAnimation": true,
-            "Duration": 10,
-            "Easing": "Cubic",
-            "EasingOption": "InOut",
-            "ClockHands": [
-              {
-                "Type": "HourClockHand",
-                "FileNameHandImage": "watch_hours.png",
-                "RotationCenterX": 12,
-                "RotationCenterY": 112,
-                "HourHandMinuteCorrection": true
-              },
-              {
-                "Type": "MinuteClockHand",
-                "FileNameHandImage": "watch_minutes.png",
-                "RotationCenterX": 12,
-                "RotationCenterY": 140
-              },
-              {
-                "Type": "SecondClockHand",
-                "FileNameHandImage": "watch_seconds.png",
-                "RotationCenterX": 2,
-                "RotationCenterY": 172
-              }
-            ],
-            "InitialHour": 1,
-            "InitialMinute": 10
-          },
-          {
-            "Type": "Image",
-            "Name": "watch_needle_center",
-            "X": 177,
-            "Y": 177,
-            "Width": 36,
-            "Height": 36,
-            "RelativeFilename": "watch_needle_center.png"
+            "Type": "Gauge",
+            "Name": "gauge1",
+            "X": 135,
+            "Y": 222,
+            "Width": 120,
+            "Height": 120,
+            "Preset": "alternate_theme\\presets\\gauges\\tiny\\active_filled.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_tiny_backgrounds_active_filled.png",
+            "RotationCenterX": 60.0,
+            "RotationCenterY": 60.0,
+            "StartAngle": -119.0,
+            "EndAngle": 122.0,
+            "RangeMax": 100.0,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_tiny_needles_rough.png",
+            "NeedleRotationCenterX": 5.0,
+            "NeedleRotationCenterY": 33.0,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": true,
+            "FileNameArc": "__generated\\alternate_theme_images_widgets_gauge_tiny_fillers_swoop.png",
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "SetArcPosition": true,
+            "ArcX": 12.0,
+            "ArcY": 12.0,
+            "ArcWidth": 95.0,
+            "ArcHeight": 71.0,
+            "ArcRadius": 50.0,
+            "ArcLineWidth": 49.0,
+            "ArcCapStyle": "Butt"
           }
         ],
         "Interactions": []
