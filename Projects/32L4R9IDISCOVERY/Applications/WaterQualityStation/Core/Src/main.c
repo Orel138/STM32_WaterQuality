@@ -87,6 +87,18 @@ const osThreadAttr_t guiTask_attributes = {
   .stack_size = 4096 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for adcTask */
+osThreadId_t adcTaskHandle;
+const osThreadAttr_t adcTask_attributes = {
+  .name = "adcTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for adcQueue */
+osMessageQueueId_t adcQueueHandle;
+const osMessageQueueAttr_t adcQueue_attributes = {
+  .name = "adcQueue"
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -103,6 +115,7 @@ static void MX_DSIHOST_DSI_Init(void);
 static void MX_OCTOSPI1_Init(void);
 void StartDefaultTask(void *argument);
 void TouchGFX_Task(void *argument);
+void StartadcTas03(void *argument);
 
 /* USER CODE BEGIN PFP */
 static void LCD_PowerOn(void);
@@ -178,6 +191,10 @@ int main(void)
 
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* creation of adcQueue */
+  adcQueueHandle = osMessageQueueNew (10, sizeof(uint16_t), &adcQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -188,6 +205,9 @@ int main(void)
 
   /* creation of guiTask */
   guiTaskHandle = osThreadNew(TouchGFX_Task, NULL, &guiTask_attributes);
+
+  /* creation of adcTask */
+  adcTaskHandle = osThreadNew(StartadcTas03, NULL, &adcTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1662,6 +1682,24 @@ __weak void TouchGFX_Task(void *argument)
     osDelay(1);
   }
   /* USER CODE END TouchGFX_Task */
+}
+
+/* USER CODE BEGIN Header_StartadcTas03 */
+/**
+* @brief Function implementing the adcTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartadcTas03 */
+void StartadcTas03(void *argument)
+{
+  /* USER CODE BEGIN StartadcTas03 */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartadcTas03 */
 }
 
 /**
