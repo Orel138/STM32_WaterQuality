@@ -64,5 +64,11 @@ void MainView::handleTickEvent()
 //
 //        gauge1.updateValue(gauge1.getValue() + 1, 0);
 //    }
-	gauge1.updateValue(gauge1.getValue() + 1, 0);
+//	gauge1.updateValue(gauge1.getValue() + 1, 0);
+}
+
+void MainView::setADC(int val)
+{
+	gauge1.setValue(val);
+	gauge1.invalidate();
 }

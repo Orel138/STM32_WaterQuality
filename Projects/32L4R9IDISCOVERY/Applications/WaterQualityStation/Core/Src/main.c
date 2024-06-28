@@ -128,7 +128,13 @@ static uint8_t WriteEnable(OSPI_HandleTypeDef *hospi);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint16_t ADC_Value;
+int converted_val;
 
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+  return (x - in_min) * (out_max - out_min + 1) / (in_max - in_min + 1) + out_min;
+}
 /* USER CODE END 0 */
 
 /**
@@ -1695,10 +1701,18 @@ void StartadcTas03(void *argument)
 {
   /* USER CODE BEGIN StartadcTas03 */
   /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
+	for(;;)
+	{
+//		HAL_ADC_Start(&hadc3);
+//		HAL_ADC_PollForConversion (&hadc3, 10);
+//		ADC_Value = HAL_ADC_GetValue (&hadc3);
+//		HAL_ADC_Stop (&hadc3);
+//		converted_val = map(ADC_Value, 0, 4095, 0, 100);
+		converted_val = 46;
+
+		osMessageQueuePut(adcQueueHandle, &converted_val, 0, 0);
+		osDelay(10);
+	}
   /* USER CODE END StartadcTas03 */
 }
 

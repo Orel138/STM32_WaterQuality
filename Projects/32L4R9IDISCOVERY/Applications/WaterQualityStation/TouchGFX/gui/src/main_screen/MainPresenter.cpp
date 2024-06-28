@@ -13,3 +13,8 @@ void MainPresenter::activate()
 void MainPresenter::deactivate()
 {
 }
+
+void MainPresenter::setADC(int val)
+{
+	view.setADC (val);
+}

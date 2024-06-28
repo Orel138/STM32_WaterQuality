@@ -17,6 +17,7 @@ public:
     virtual void tearDownScreen();
     virtual void handleTickEvent();
     void setupHand(TextureMapper& hand, const BitmapId bitmapId, int16_t clockRotationCenterX, int16_t clockRotationCenterY, int16_t rotationCenterX, int16_t rotationCenterY);
+    virtual void setADC (int value);
 protected:
 
     int tickCounter;

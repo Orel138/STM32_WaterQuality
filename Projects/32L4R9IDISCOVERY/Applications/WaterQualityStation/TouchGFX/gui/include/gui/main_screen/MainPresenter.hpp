@@ -27,6 +27,8 @@ public:
 
     virtual ~MainPresenter() {};
 
+    virtual void setADC (int value);
+
 private:
     MainPresenter();
 

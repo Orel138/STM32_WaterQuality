@@ -43,6 +43,7 @@ protected:
      * Pointer to the currently active presenter.
      */
     ModelListener* modelListener;
+    uint16_t ADC_value;
 };
 
 #endif /* MODEL_HPP */
