@@ -1,0 +1,5 @@
+TouchGFX/build
+TouchGFX/generated
+TouchGFX/simulator/msvs/.vs
+
+*.mxproject
